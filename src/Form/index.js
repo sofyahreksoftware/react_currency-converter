@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { rates } from "../rates.js";
 
 function Form() {
-  const [result, setResult] = useState("");
   const calculateResult = (
     moneyAmount,
     convertFromCurrency,
@@ -44,15 +43,17 @@ function Form() {
       convertFromCurrency,
       convertToCurrency
     );
+    console.log(calculatedResult);
     setResult(calculatedResult);
-    console.log(result);
   };
+
+  const [result, setResult] = useState("");
 
   const [moneyAmount, setMoneyAmount] = useState("");
 
-  const [convertFromCurrency, setConvertFromCurrency] = useState("");
+  const [convertFromCurrency, setConvertFromCurrency] = useState("usd");
 
-  const [convertToCurrency, setConvertToCurrency] = useState("");
+  const [convertToCurrency, setConvertToCurrency] = useState("eur");
 
   return (
     <form className="form" onSubmit={onFormSubmit}>
@@ -109,9 +110,6 @@ function Form() {
       </fieldset>
       <p>
         <button className="form__button js__button">Przelicz kwotę</button>
-      </p>
-      <p className="form__result">
-        <em> </em>
       </p>
     </form>
   );
