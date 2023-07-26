@@ -1,41 +1,7 @@
 import "./style.css";
 import React, { useState } from "react";
-import { rates } from "../rates.js";
 
-function Form() {
-  const calculateResult = (
-    moneyAmount,
-    convertFromCurrency,
-    convertToCurrency
-  ) => {
-    let exchangeRate;
-
-    switch (convertFromCurrency) {
-      case "usd":
-        switch (convertToCurrency) {
-          case "eur":
-            exchangeRate = rates.find((rate) => rate.currency === "EUR").in1USD;
-            return moneyAmount * exchangeRate;
-
-          case "pln":
-            exchangeRate = rates.find((rate) => rate.currency === "PLN").in1USD;
-            return moneyAmount * exchangeRate;
-
-          case "chf":
-            exchangeRate = rates.find((rate) => rate.currency === "CHF").in1USD;
-            return moneyAmount * exchangeRate;
-
-          case "rub":
-            exchangeRate = rates.find((rate) => rate.currency === "RUB").in1USD;
-            return moneyAmount * exchangeRate;
-
-          case "usd":
-            return +moneyAmount;
-        }
-        break;
-    }
-  };
-
+function Form({calculateResult}) {
   const onFormSubmit = (event) => {
     event.preventDefault();
     const calculatedResult = calculateResult(
@@ -114,5 +80,4 @@ function Form() {
     </form>
   );
 }
-
 export default Form;
