@@ -1,25 +1,19 @@
 import "./style.css";
 import React, { useState } from "react";
 
-function Form({calculateResult}) {
+function Form({
+  moneyAmount,
+  setMoneyAmount,
+  convertFromCurrency,
+  setConvertFromCurrency,
+  convertToCurrency,
+  setConvertToCurrency,
+  calculateResult,
+}) {
   const onFormSubmit = (event) => {
     event.preventDefault();
-    const calculatedResult = calculateResult(
-      moneyAmount,
-      convertFromCurrency,
-      convertToCurrency
-    );
-    console.log(calculatedResult);
-    setResult(calculatedResult);
+    calculateResult(moneyAmount, convertFromCurrency, convertToCurrency);
   };
-
-  const [result, setResult] = useState("");
-
-  const [moneyAmount, setMoneyAmount] = useState("");
-
-  const [convertFromCurrency, setConvertFromCurrency] = useState("usd");
-
-  const [convertToCurrency, setConvertToCurrency] = useState("eur");
 
   return (
     <form className="form" onSubmit={onFormSubmit}>
