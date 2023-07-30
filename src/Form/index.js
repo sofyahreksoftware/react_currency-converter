@@ -1,5 +1,5 @@
 import "./style.css";
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
 function Form({
   moneyAmount,
@@ -9,10 +9,16 @@ function Form({
   convertToCurrency,
   setConvertToCurrency,
   calculateResult,
+  setResult,
 }) {
   const onFormSubmit = (event) => {
     event.preventDefault();
-    calculateResult(moneyAmount, convertFromCurrency, convertToCurrency);
+    const calculatedResult = calculateResult(
+      moneyAmount,
+      convertFromCurrency,
+      convertToCurrency
+    );
+    setResult(calculatedResult);
   };
 
   return (
