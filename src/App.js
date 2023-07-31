@@ -13,14 +13,6 @@ function App() {
 
   const [convertToCurrency, setConvertToCurrency] = useState("eur");
 
-  const [resultText, setResultText] = useState("");
-
-  const switchResultText = () => {
-    setResultText(`${+moneyAmount} ${convertFromCurrency.toUpperCase()} 
-  = 
-  ${result.toFixed(2)}${convertToCurrency.toUpperCase()}
-  `);
-  };
   const calculateResult = (
     moneyAmount,
     convertFromCurrency,
@@ -152,9 +144,13 @@ function App() {
         setConvertToCurrency={setConvertToCurrency}
         calculateResult={calculateResult}
         setResult={setResult}
-        switchResultText={switchResultText}
       />
-      <Result resultText={resultText} />
+      <Result
+        result={result}
+        moneyAmount={moneyAmount}
+        convertFromCurrency={convertFromCurrency}
+        convertToCurrency={convertToCurrency}
+      />
     </Container>
   );
 }

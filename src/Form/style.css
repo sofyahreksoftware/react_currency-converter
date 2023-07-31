@@ -60,8 +60,3 @@
 .form__button:active {
  background-color: #f2d53c;
 }
-.form__result {
-  font-size: 25px;
-  text-align: center;
-  font-weight: bold;
-}
