@@ -13,6 +13,13 @@ function App() {
 
   const [convertToCurrency, setConvertToCurrency] = useState("eur");
 
+  const [resultData, setResultData] = useState({
+    moneyAmount,
+    convertFromCurrency,
+    result,
+    convertToCurrency,
+  });
+
   const calculateResult = (
     moneyAmount,
     convertFromCurrency,
@@ -144,13 +151,9 @@ function App() {
         setConvertToCurrency={setConvertToCurrency}
         calculateResult={calculateResult}
         setResult={setResult}
+        setResultData={setResultData}
       />
-      <Result
-        result={result}
-        moneyAmount={moneyAmount}
-        convertFromCurrency={convertFromCurrency}
-        convertToCurrency={convertToCurrency}
-      />
+      <Result resultData={resultData} />
     </Container>
   );
 }

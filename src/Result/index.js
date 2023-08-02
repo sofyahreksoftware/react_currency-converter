@@ -1,16 +1,12 @@
 import "./style.css";
 
-const Result = ({
-  result,
-  moneyAmount,
-  convertFromCurrency,
-  convertToCurrency,
-}) => (
+const Result = ({ resultData }) => (
   <p className="result">
-    {result &&
-      `${+moneyAmount} ${convertFromCurrency.toUpperCase()} 
+    {`${+resultData.moneyAmount} ${resultData.convertFromCurrency.toUpperCase()} 
       = 
-      ${result.toFixed(2)}${convertToCurrency.toUpperCase()}
+      ${resultData.result.toFixed(
+        2
+      )}${resultData.convertToCurrency.toUpperCase()}
     `}
   </p>
 );

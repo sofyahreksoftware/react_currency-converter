@@ -10,6 +10,7 @@ function Form({
   setConvertToCurrency,
   calculateResult,
   setResult,
+  setResultData
 }) {
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -19,6 +20,12 @@ function Form({
       convertToCurrency
     );
     setResult(calculatedResult);
+    setResultData({
+      moneyAmount: moneyAmount,
+      convertFromCurrency: convertFromCurrency,
+      convertToCurrency: convertToCurrency,
+      result: calculatedResult,
+    });
   };
 
   return (
