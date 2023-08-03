@@ -23,6 +23,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Description
 
+### How should the application look?
+
+- before result calculation
+![The correct look of application before result calculation](ssBeforeCalculation.png)
+- after result calculation
+![The correct look of application after result calculation](ssAfterCalculation.png)
+
+### Available currencies
 This application offers currency conversion for a selection of 5 different currencies:
 
 - USD
