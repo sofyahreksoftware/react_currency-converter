@@ -3,7 +3,7 @@ import Form from "./Form";
 import React, { useState } from "react";
 import { rates } from "./rates.js";
 import Result from "./Result";
-
+import Footer from "./Footer";
 function App() {
   const [result, setResult] = useState("");
 
@@ -153,7 +153,8 @@ function App() {
         setResult={setResult}
         setResultData={setResultData}
       />
-      <Result resultData={resultData} />
+      <Result result={result} resultData={resultData} />
+      <Footer result={result} />
     </Container>
   );
 }

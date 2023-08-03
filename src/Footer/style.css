@@ -1,0 +1,10 @@
+.footer {
+  color: #696969;
+  font-weight: lighter;
+  text-align: center;
+  font-family: "Prompt", sans-serif;
+}
+.footer_link {
+  color: #696969;
+  font-weight: bold;
+}
