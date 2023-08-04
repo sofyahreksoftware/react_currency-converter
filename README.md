@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Demo
 
-[Link for main page of Currency Converter](https://sofyahreksoftware.github.io/react_currency-converter/)
+[Link to the main page of Currency Converter](https://sofyahreksoftware.github.io/react_currency-converter/)
 
 ## Technologies
 - HTML
