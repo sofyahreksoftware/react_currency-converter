@@ -8,6 +8,14 @@ const Footer = ({ result }) => (
         <a
           className="footer_link"
           href="https://nbp.pl/statystyka-i-sprawozdawczosc/kursy/"
+          target="_blank"
+          więcej
+          o
+          kursach
+          walut
+          i
+          ich
+          przeliczaniu
         >
           nbp.pl
         </a>
