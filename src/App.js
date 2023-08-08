@@ -1,7 +1,7 @@
 import Container from "./Container";
 import Form from "./Form";
 import React, { useState } from "react";
-import { rates } from "./rates.js";
+import { currencies } from "./currencies.js";
 import Result from "./Result";
 import Footer from "./Footer";
 function App() {
@@ -25,26 +25,34 @@ function App() {
     convertFromCurrency,
     convertToCurrency
   ) => {
-    let exchangeRate;
+    let exchangecurrency;
 
     switch (convertFromCurrency) {
       case "usd":
         switch (convertToCurrency) {
           case "eur":
-            exchangeRate = rates.find((rate) => rate.currency === "EUR").in1USD;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "EUR"
+            ).in1USD;
+            return moneyAmount * exchangecurrency;
 
           case "pln":
-            exchangeRate = rates.find((rate) => rate.currency === "PLN").in1USD;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "PLN"
+            ).in1USD;
+            return moneyAmount * exchangecurrency;
 
           case "chf":
-            exchangeRate = rates.find((rate) => rate.currency === "CHF").in1USD;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "CHF"
+            ).in1USD;
+            return moneyAmount * exchangecurrency;
 
           case "rub":
-            exchangeRate = rates.find((rate) => rate.currency === "RUB").in1USD;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "RUB"
+            ).in1USD;
+            return moneyAmount * exchangecurrency;
 
           case "usd":
             return +moneyAmount;
@@ -53,20 +61,28 @@ function App() {
       case "eur":
         switch (convertToCurrency) {
           case "usd":
-            exchangeRate = rates.find((rate) => rate.currency === "USD").in1EUR;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "USD"
+            ).in1EUR;
+            return moneyAmount * exchangecurrency;
 
           case "pln":
-            exchangeRate = rates.find((rate) => rate.currency === "PLN").in1EUR;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "PLN"
+            ).in1EUR;
+            return moneyAmount * exchangecurrency;
 
           case "chf":
-            exchangeRate = rates.find((rate) => rate.currency === "CHF").in1EUR;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "CHF"
+            ).in1EUR;
+            return moneyAmount * exchangecurrency;
 
           case "rub":
-            exchangeRate = rates.find((rate) => rate.currency === "RUB").in1EUR;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "RUB"
+            ).in1EUR;
+            return moneyAmount * exchangecurrency;
 
           case "eur":
             return +moneyAmount;
@@ -75,20 +91,28 @@ function App() {
       case "pln":
         switch (convertToCurrency) {
           case "usd":
-            exchangeRate = rates.find((rate) => rate.currency === "USD").in1PLN;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "USD"
+            ).in1PLN;
+            return moneyAmount * exchangecurrency;
 
           case "eur":
-            exchangeRate = rates.find((rate) => rate.currency === "EUR").in1PLN;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "EUR"
+            ).in1PLN;
+            return moneyAmount * exchangecurrency;
 
           case "chf":
-            exchangeRate = rates.find((rate) => rate.currency === "CHF").in1PLN;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "CHF"
+            ).in1PLN;
+            return moneyAmount * exchangecurrency;
 
           case "rub":
-            exchangeRate = rates.find((rate) => rate.currency === "RUB").in1PLN;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "RUB"
+            ).in1PLN;
+            return moneyAmount * exchangecurrency;
 
           case "pln":
             return +moneyAmount;
@@ -97,20 +121,28 @@ function App() {
       case "chf":
         switch (convertToCurrency) {
           case "usd":
-            exchangeRate = rates.find((rate) => rate.currency === "USD").in1CHF;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "USD"
+            ).in1CHF;
+            return moneyAmount * exchangecurrency;
 
           case "eur":
-            exchangeRate = rates.find((rate) => rate.currency === "EUR").in1CHF;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "EUR"
+            ).in1CHF;
+            return moneyAmount * exchangecurrency;
 
           case "pln":
-            exchangeRate = rates.find((rate) => rate.currency === "PLN").in1CHF;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "PLN"
+            ).in1CHF;
+            return moneyAmount * exchangecurrency;
 
           case "rub":
-            exchangeRate = rates.find((rate) => rate.currency === "RUB").in1CHF;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "RUB"
+            ).in1CHF;
+            return moneyAmount * exchangecurrency;
 
           case "chf":
             return +moneyAmount;
@@ -119,20 +151,28 @@ function App() {
       case "rub":
         switch (convertToCurrency) {
           case "usd":
-            exchangeRate = rates.find((rate) => rate.currency === "USD").in1CHF;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "USD"
+            ).in1CHF;
+            return moneyAmount * exchangecurrency;
 
           case "eur":
-            exchangeRate = rates.find((rate) => rate.currency === "EUR").in1CHF;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "EUR"
+            ).in1CHF;
+            return moneyAmount * exchangecurrency;
 
           case "pln":
-            exchangeRate = rates.find((rate) => rate.currency === "PLN").in1CHF;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "PLN"
+            ).in1CHF;
+            return moneyAmount * exchangecurrency;
 
           case "chf":
-            exchangeRate = rates.find((rate) => rate.currency === "CHF").in1CHF;
-            return moneyAmount * exchangeRate;
+            exchangecurrency = currencies.find(
+              (currency) => currency.currency === "CHF"
+            ).in1CHF;
+            return moneyAmount * exchangecurrency;
 
           case "rub":
             return +moneyAmount;

@@ -1,4 +1,4 @@
-export const rates = [
+export const currencies = [
   {
     currency: "EUR",
     in1USD: 0.91115,
