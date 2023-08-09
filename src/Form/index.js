@@ -1,5 +1,5 @@
 import "./style.css";
-// import React, { useState } from "react";
+import { currencies } from "../currencies.js";
 
 function Form({
   moneyAmount,
@@ -10,7 +10,7 @@ function Form({
   setConvertToCurrency,
   calculateResult,
   setResult,
-  setResultData
+  setResultData,
 }) {
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -57,11 +57,11 @@ function Form({
             value={convertFromCurrency}
             onChange={(event) => setConvertFromCurrency(event.target.value)}
           >
-            <option value="usd">USD</option>
-            <option value="eur">EUR</option>
-            <option value="pln">PLN</option>
-            <option value="rub">RUB</option>
-            <option value="chf">CHF</option>
+            {currencies.map((currency) => (
+              <option key={currency.name} value={currency.value}>
+                {currency.name}
+              </option>
+            ))}
           </select>
         </label>
 
@@ -73,11 +73,11 @@ function Form({
             value={convertToCurrency}
             onChange={(event) => setConvertToCurrency(event.target.value)}
           >
-            <option value="usd">USD</option>
-            <option value="eur">EUR</option>
-            <option value="pln">PLN</option>
-            <option value="rub">RUB</option>
-            <option value="chf">CHF</option>
+            {currencies.map((currency) => (
+              <option key={currency.name} value={currency.value}>
+                {currency.name}
+              </option>
+            ))}
           </select>
         </label>
       </fieldset>
