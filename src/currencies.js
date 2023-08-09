@@ -6,6 +6,7 @@ export const currencies = [
     in1PLN: 22.52,
     in1RUB: 0.009959,
     in1CHF: 1.02,
+    in1EUR: 1,
   },
   {
     name: "USD",
@@ -14,6 +15,7 @@ export const currencies = [
     in1PLN: 0.24612,
     in1RUB: 0.01093,
     in1CHF: 1.12,
+    in1USD: 1,
   },
   {
     name: "PLN",
@@ -22,6 +24,7 @@ export const currencies = [
     in1EUR: 4.46,
     in1RUB: 0.044409,
     in1CHF: 4.56,
+    in1PLN: 1,
   },
   {
     name: "CHF",
@@ -30,6 +33,7 @@ export const currencies = [
     in1EUR: 0.97712,
     in1PLN: 0.21912,
     in1RUB: 0.009731,
+    in1CHF: 1,
   },
   {
     name: "RUB",
@@ -38,5 +42,6 @@ export const currencies = [
     in1EUR: 100.42,
     in1PLN: 22.52,
     in1CHF: 102.77,
+    in1RUB: 1,
   },
 ];
