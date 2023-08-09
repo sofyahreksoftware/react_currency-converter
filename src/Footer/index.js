@@ -9,6 +9,7 @@ const Footer = ({ result }) => (
           className="footer_link"
           href="https://nbp.pl/statystyka-i-sprawozdawczosc/kursy/"
           target="_blank"
+          rel="noreferrer"
           więcej
           o
           kursach
