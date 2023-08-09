@@ -2,7 +2,7 @@ import "./style.css";
 
 const Footer = ({ result }) => (
   <footer>
-    {result ? (
+    {result.targetAmount ? (
       <p className="footer">
         Kursy walut pochodzą ze strony:
         <a

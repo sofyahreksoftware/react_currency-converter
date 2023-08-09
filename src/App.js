@@ -5,7 +5,7 @@ import { currencies } from "./currencies.js";
 import Result from "./Result";
 import Footer from "./Footer";
 function App() {
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState({});
 
   const [moneyAmount, setMoneyAmount] = useState("");
 
@@ -13,172 +13,52 @@ function App() {
 
   const [convertToCurrency, setConvertToCurrency] = useState("eur");
 
-  const [resultData, setResultData] = useState({
-    moneyAmount,
-    convertFromCurrency,
-    result,
-    convertToCurrency,
-  });
+  const [exchangeCurrency, setExchangeCurrency] = useState("");
 
   const calculateResult = (
     moneyAmount,
     convertFromCurrency,
     convertToCurrency
   ) => {
-    let exchangecurrency;
-
     switch (convertFromCurrency) {
       case "usd":
-        switch (convertToCurrency) {
-          case "eur":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "EUR"
-            ).in1USD;
-            return moneyAmount * exchangecurrency;
-
-          case "pln":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "PLN"
-            ).in1USD;
-            return moneyAmount * exchangecurrency;
-
-          case "chf":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "CHF"
-            ).in1USD;
-            return moneyAmount * exchangecurrency;
-
-          case "rub":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "RUB"
-            ).in1USD;
-            return moneyAmount * exchangecurrency;
-
-          case "usd":
-            return +moneyAmount;
-        }
+        setExchangeCurrency(
+          currencies.find((currency) => currency.value === convertToCurrency)
+            .in1USD
+        );
         break;
       case "eur":
-        switch (convertToCurrency) {
-          case "usd":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "USD"
-            ).in1EUR;
-            return moneyAmount * exchangecurrency;
-
-          case "pln":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "PLN"
-            ).in1EUR;
-            return moneyAmount * exchangecurrency;
-
-          case "chf":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "CHF"
-            ).in1EUR;
-            return moneyAmount * exchangecurrency;
-
-          case "rub":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "RUB"
-            ).in1EUR;
-            return moneyAmount * exchangecurrency;
-
-          case "eur":
-            return +moneyAmount;
-        }
+        setExchangeCurrency(
+          currencies.find((currency) => currency.value === convertToCurrency)
+            .in1EUR
+        );
         break;
       case "pln":
-        switch (convertToCurrency) {
-          case "usd":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "USD"
-            ).in1PLN;
-            return moneyAmount * exchangecurrency;
-
-          case "eur":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "EUR"
-            ).in1PLN;
-            return moneyAmount * exchangecurrency;
-
-          case "chf":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "CHF"
-            ).in1PLN;
-            return moneyAmount * exchangecurrency;
-
-          case "rub":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "RUB"
-            ).in1PLN;
-            return moneyAmount * exchangecurrency;
-
-          case "pln":
-            return +moneyAmount;
-        }
+        setExchangeCurrency(
+          currencies.find((currency) => currency.value === convertToCurrency)
+            .in1PLN
+        );
         break;
       case "chf":
-        switch (convertToCurrency) {
-          case "usd":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "USD"
-            ).in1CHF;
-            return moneyAmount * exchangecurrency;
-
-          case "eur":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "EUR"
-            ).in1CHF;
-            return moneyAmount * exchangecurrency;
-
-          case "pln":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "PLN"
-            ).in1CHF;
-            return moneyAmount * exchangecurrency;
-
-          case "rub":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "RUB"
-            ).in1CHF;
-            return moneyAmount * exchangecurrency;
-
-          case "chf":
-            return +moneyAmount;
-        }
+        setExchangeCurrency(
+          currencies.find((currency) => currency.value === convertToCurrency)
+            .in1CHF
+        );
         break;
       case "rub":
-        switch (convertToCurrency) {
-          case "usd":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "USD"
-            ).in1CHF;
-            return moneyAmount * exchangecurrency;
-
-          case "eur":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "EUR"
-            ).in1CHF;
-            return moneyAmount * exchangecurrency;
-
-          case "pln":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "PLN"
-            ).in1CHF;
-            return moneyAmount * exchangecurrency;
-
-          case "chf":
-            exchangecurrency = currencies.find(
-              (currency) => currency.name === "CHF"
-            ).in1CHF;
-            return moneyAmount * exchangecurrency;
-
-          case "rub":
-            return +moneyAmount;
-        }
+        setExchangeCurrency(
+          currencies.find((currency) => currency.value === convertToCurrency)
+            .in1RUB
+        );
         break;
+      default:
     }
+    setResult({
+      sourceAmount: +moneyAmount,
+      convertFromCurrency,
+      targetAmount: moneyAmount * exchangeCurrency,
+      convertToCurrency,
+    });
   };
   return (
     <Container>
@@ -190,10 +70,8 @@ function App() {
         convertToCurrency={convertToCurrency}
         setConvertToCurrency={setConvertToCurrency}
         calculateResult={calculateResult}
-        setResult={setResult}
-        setResultData={setResultData}
       />
-      <Result result={result} resultData={resultData} />
+      <Result result={result} />
       <Footer result={result} />
     </Container>
   );

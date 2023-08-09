@@ -1,12 +1,12 @@
 import "./style.css";
 
-const Result = ({ result, resultData }) => (
+const Result = ({ result }) => (
   <p className="result">
-    {result
-      ? `${+resultData.moneyAmount}${resultData.convertFromCurrency.toUpperCase()} 
+    {result.targetAmount
+      ? `${+result.sourceAmount}${result.convertFromCurrency.toUpperCase()} 
       =  ${
-        resultData.result ? resultData.result.toFixed(2) : "0"
-      }${resultData.convertToCurrency.toUpperCase()}
+        result.targetAmount ? result.targetAmount.toFixed(2) : "0"
+      }${result.convertToCurrency.toUpperCase()}
     `
       : ""}
   </p>
