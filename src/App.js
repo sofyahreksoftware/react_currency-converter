@@ -13,43 +13,39 @@ function App() {
 
   const [convertToCurrency, setConvertToCurrency] = useState("eur");
 
-  const [exchangeCurrency, setExchangeCurrency] = useState("");
+  // const [exchangeCurrency, setExchangeCurrency] = useState("");
 
   const calculateResult = (
     moneyAmount,
     convertFromCurrency,
     convertToCurrency
   ) => {
+    let exchangeCurrency;
     switch (convertFromCurrency) {
       case "usd":
-        setExchangeCurrency(
-          currencies.find((currency) => currency.value === convertToCurrency)
-            .in1USD
-        );
+        exchangeCurrency = currencies.find(
+          (currency) => currency.value === convertToCurrency
+        ).in1USD;
         break;
       case "eur":
-        setExchangeCurrency(
-          currencies.find((currency) => currency.value === convertToCurrency)
-            .in1EUR
-        );
+        exchangeCurrency = currencies.find(
+          (currency) => currency.value === convertToCurrency
+        ).in1EUR;
         break;
       case "pln":
-        setExchangeCurrency(
-          currencies.find((currency) => currency.value === convertToCurrency)
-            .in1PLN
-        );
+        exchangeCurrency = currencies.find(
+          (currency) => currency.value === convertToCurrency
+        ).in1PLN;
         break;
       case "chf":
-        setExchangeCurrency(
-          currencies.find((currency) => currency.value === convertToCurrency)
-            .in1CHF
-        );
+        exchangeCurrency = currencies.find(
+          (currency) => currency.value === convertToCurrency
+        ).in1CHF;
         break;
       case "rub":
-        setExchangeCurrency(
-          currencies.find((currency) => currency.value === convertToCurrency)
-            .in1RUB
-        );
+        exchangeCurrency = currencies.find(
+          (currency) => currency.value === convertToCurrency
+        ).in1RUB;
         break;
       default:
     }
