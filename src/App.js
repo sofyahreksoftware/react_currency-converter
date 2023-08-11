@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { currencies } from "./currencies.js";
 import Result from "./Result";
 import Footer from "./Footer";
+
 function App() {
   const [result, setResult] = useState({});
 
@@ -12,8 +13,6 @@ function App() {
   const [convertFromCurrency, setConvertFromCurrency] = useState("usd");
 
   const [convertToCurrency, setConvertToCurrency] = useState("eur");
-
-  // const [exchangeCurrency, setExchangeCurrency] = useState("");
 
   const calculateResult = (
     moneyAmount,
@@ -49,6 +48,7 @@ function App() {
         break;
       default:
     }
+
     setResult({
       sourceAmount: +moneyAmount,
       convertFromCurrency,
@@ -56,6 +56,7 @@ function App() {
       convertToCurrency,
     });
   };
+
   return (
     <Container>
       <Form

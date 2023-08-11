@@ -2,7 +2,7 @@ import "./style.css";
 
 const Footer = ({ result }) => (
   <footer>
-    {result.targetAmount ? (
+    {result.targetAmount && (
       <p className="footer">
         Kursy walut pochodzą ze strony:
         <a
@@ -10,19 +10,17 @@ const Footer = ({ result }) => (
           href="https://nbp.pl/statystyka-i-sprawozdawczosc/kursy/"
           target="_blank"
           rel="noreferrer"
-          więcej
-          o
-          kursach
-          walut
-          i
-          ich
-          przeliczaniu
+          title="więcej
+        o
+        kursach
+        walut
+        i
+        ich
+        przeliczaniu"
         >
           nbp.pl
         </a>
       </p>
-    ) : (
-      ""
     )}
   </footer>
 );

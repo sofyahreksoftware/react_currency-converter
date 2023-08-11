@@ -18,7 +18,7 @@ function Form({
   return (
     <form className="form" onSubmit={onFormSubmit}>
       <header className="form__header">Kalkulator walut</header>
-      <fildset className="form__fieldset">
+      <fieldset className="form__fieldset">
         <label className="form__label">
           <p>Podaj kwotę:</p>
           <input
@@ -33,7 +33,7 @@ function Form({
             onChange={(event) => setMoneyAmount(event.target.value)}
           />
         </label>
-      </fildset>
+      </fieldset>
 
       <fieldset className="form__fieldset">
         <label className="form__label">
