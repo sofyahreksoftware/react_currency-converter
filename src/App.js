@@ -1,10 +1,10 @@
 import Container from "./Container";
+import Watch from "./Watch";
 import Form from "./Form";
-import { useState } from "react";
 import { currencies } from "./currencies.js";
 import Result from "./Result";
 import Footer from "./Footer";
-import Watch from "./Watch";
+import { useState } from "react";
 
 function App() {
   const [dateTime, setDateTime] = useState("");

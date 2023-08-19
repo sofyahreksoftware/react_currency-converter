@@ -18,6 +18,7 @@ function Watch({ dateTime, setDateTime }) {
       clearInterval(intervalID);
     };
   }, []);
+  
   return (
     <p className="watch">
       Dzisiaj jest <span>{dateTime}</span>
