@@ -1,11 +1,14 @@
 import Container from "./Container";
 import Form from "./Form";
-import React, { useState } from "react";
+import { useState } from "react";
 import { currencies } from "./currencies.js";
 import Result from "./Result";
 import Footer from "./Footer";
+import Watch from "./Watch";
 
 function App() {
+  const [dateTime, setDateTime] = useState("");
+
   const [result, setResult] = useState({});
 
   const [moneyAmount, setMoneyAmount] = useState("");
@@ -59,6 +62,7 @@ function App() {
 
   return (
     <Container>
+      <Watch dateTime={dateTime} setDateTime={setDateTime} />
       <Form
         moneyAmount={moneyAmount}
         setMoneyAmount={setMoneyAmount}
