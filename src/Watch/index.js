@@ -12,13 +12,14 @@ function Watch({ dateTime, setDateTime }) {
       };
       const date = newDate.toLocaleDateString("pl-PL", dataOptions);
       const time = newDate.toLocaleTimeString();
-      setDateTime((dateTime = date + ", " + time));
+      setDateTime(date + ", " + time);
     }, 1000);
+
     return () => {
       clearInterval(intervalID);
     };
-  }, []);
-  
+  }, [setDateTime]);
+
   return (
     <p className="watch">
       Dzisiaj jest <span>{dateTime}</span>
