@@ -13,6 +13,7 @@ function Form({
   const onFormSubmit = (event) => {
     event.preventDefault();
     calculateResult(moneyAmount, convertFromCurrency, convertToCurrency);
+    setMoneyAmount("");
   };
 
   return (
