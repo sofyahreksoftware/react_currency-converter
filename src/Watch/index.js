@@ -1,28 +1,33 @@
 import "./style.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-function Watch({ dateTime, setDateTime }) {
+function Watch() {
+  const [date, setDate] = useState(new Date());
+
+  const formatDate = (date) => {
+    return date.toLocaleDateString("pl-PL", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+    });
+  };
+
   useEffect(() => {
     const intervalID = setInterval(() => {
-      const newDate = new Date();
-      const dataOptions = {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-      };
-      const date = newDate.toLocaleDateString("pl-PL", dataOptions);
-      const time = newDate.toLocaleTimeString();
-      setDateTime(date + ", " + time);
+      setDate(new Date());
     }, 1000);
 
     return () => {
       clearInterval(intervalID);
     };
-  }, [setDateTime]);
+  }, [setDate]);
 
   return (
     <p className="watch">
-      Dzisiaj jest <span>{dateTime}</span>
+      Dzisiaj jest <span>{formatDate(date)}</span>
     </p>
   );
 }

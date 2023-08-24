@@ -7,8 +7,6 @@ import Footer from "./Footer";
 import { useState } from "react";
 
 function App() {
-  const [dateTime, setDateTime] = useState("");
-
   const [result, setResult] = useState({});
 
   const [moneyAmount, setMoneyAmount] = useState("");
@@ -62,7 +60,7 @@ function App() {
 
   return (
     <Container>
-      <Watch dateTime={dateTime} setDateTime={setDateTime} />
+      <Watch />
       <Form
         moneyAmount={moneyAmount}
         setMoneyAmount={setMoneyAmount}
