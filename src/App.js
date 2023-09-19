@@ -20,35 +20,9 @@ function App() {
     convertFromCurrency,
     convertToCurrency
   ) => {
-    let exchangeCurrency;
-    switch (convertFromCurrency) {
-      case "usd":
-        exchangeCurrency = currencies.find(
-          (currency) => currency.value === convertToCurrency
-        ).in1USD;
-        break;
-      case "eur":
-        exchangeCurrency = currencies.find(
-          (currency) => currency.value === convertToCurrency
-        ).in1EUR;
-        break;
-      case "pln":
-        exchangeCurrency = currencies.find(
-          (currency) => currency.value === convertToCurrency
-        ).in1PLN;
-        break;
-      case "chf":
-        exchangeCurrency = currencies.find(
-          (currency) => currency.value === convertToCurrency
-        ).in1CHF;
-        break;
-      case "rub":
-        exchangeCurrency = currencies.find(
-          (currency) => currency.value === convertToCurrency
-        ).in1RUB;
-        break;
-      default:
-    }
+    const exchangeCurrency = currencies.find(
+      (currency) => currency.value === convertToCurrency
+    ).rates[convertFromCurrency];
 
     setResult({
       sourceAmount: +moneyAmount,
