@@ -70,7 +70,7 @@ function Form({
         </label>
       </fieldset>
       <p>
-        <button className="form__button js__button">Przelicz kwotę</button>
+        <button className="form__button">Przelicz kwotę</button>
       </p>
     </form>
   );
