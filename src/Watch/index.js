@@ -1,29 +1,8 @@
 import "./style.css";
-import { useEffect, useState } from "react";
+import { useCurrentDate } from "./useCurrentDate.js";
 
 function Watch() {
-  const [date, setDate] = useState(new Date());
-
-  const formatDate = (date) => {
-    return date.toLocaleDateString("pl-PL", {
-      weekday: "long",
-      day: "numeric",
-      month: "long",
-      hour: "numeric",
-      minute: "numeric",
-      second: "numeric",
-    });
-  };
-
-  useEffect(() => {
-    const intervalID = setInterval(() => {
-      setDate(new Date());
-    }, 1000);
-
-    return () => {
-      clearInterval(intervalID);
-    };
-  }, [setDate]);
+  const [date, formatDate] = useCurrentDate();
 
   return (
     <p className="watch">
