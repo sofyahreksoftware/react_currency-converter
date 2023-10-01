@@ -1,5 +1,12 @@
-import "./style.css";
 import { currencies } from "../currencies.js";
+import {
+  StyledForm,
+  Header,
+  Fieldset,
+  Label,
+  FormField,
+  Button,
+} from "./styled";
 
 function Form({
   moneyAmount,
@@ -17,13 +24,13 @@ function Form({
   };
 
   return (
-    <form className="form" onSubmit={onFormSubmit}>
-      <header className="form__header">Kalkulator walut</header>
-      <fieldset className="form__fieldset">
-        <label className="form__label">
+    <StyledForm onSubmit={onFormSubmit}>
+      <Header>Kalkulator walut</Header>
+      <Fieldset>
+        <Label>
           <p>Podaj kwotę:</p>
-          <input
-            className="form__field"
+          <FormField
+            as="input"
             min="1"
             name="amount"
             required
@@ -33,14 +40,13 @@ function Form({
             value={moneyAmount}
             onChange={(event) => setMoneyAmount(event.target.value)}
           />
-        </label>
-      </fieldset>
+        </Label>
+      </Fieldset>
 
-      <fieldset className="form__fieldset">
-        <label className="form__label">
+      <Fieldset>
+        <Label>
           <p>Przelicz z:</p>
-          <select
-            className="form__field"
+          <FormField
             name="convertFrom"
             value={convertFromCurrency}
             onChange={(event) => setConvertFromCurrency(event.target.value)}
@@ -50,13 +56,12 @@ function Form({
                 {currency.name}
               </option>
             ))}
-          </select>
-        </label>
+          </FormField>
+        </Label>
 
-        <label className="form__label">
+        <Label>
           <p>na:</p>
-          <select
-            className="form__field"
+          <FormField
             name="convertTo"
             value={convertToCurrency}
             onChange={(event) => setConvertToCurrency(event.target.value)}
@@ -66,13 +71,13 @@ function Form({
                 {currency.name}
               </option>
             ))}
-          </select>
-        </label>
-      </fieldset>
+          </FormField>
+        </Label>
+      </Fieldset>
       <p>
-        <button className="form__button">Przelicz kwotę</button>
+        <Button>Przelicz kwotę</Button>
       </p>
-    </form>
+    </StyledForm>
   );
 }
 export default Form;

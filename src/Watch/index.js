@@ -1,13 +1,13 @@
-import "./style.css";
 import { useCurrentDate } from "./useCurrentDate.js";
+import { StyledWatch } from "./styled";
 
 function Watch() {
   const [date, formatDate] = useCurrentDate();
 
   return (
-    <p className="watch">
+    <StyledWatch>
       Dzisiaj jest <span>{formatDate(date)}</span>
-    </p>
+    </StyledWatch>
   );
 }
 

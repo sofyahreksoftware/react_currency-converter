@@ -1,7 +1,7 @@
-import "./style.css";
+import { StyledResult } from "./styled";
 
 const Result = ({ result }) => (
-  <p className="result">
+  <StyledResult>
     {result.targetAmount
       ? `${+result.sourceAmount}${result.convertFromCurrency.toUpperCase()} 
       =  ${
@@ -9,7 +9,7 @@ const Result = ({ result }) => (
       }${result.convertToCurrency.toUpperCase()}
     `
       : ""}
-  </p>
+  </StyledResult>
 );
 
 export default Result;

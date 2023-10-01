@@ -1,12 +1,10 @@
-import "./style.css";
-
+import { StyledFooter, A } from "./styled";
 const Footer = ({ result }) => (
   <footer>
     {result.targetAmount && (
-      <p className="footer">
+      <StyledFooter>
         Kursy walut pochodzą ze strony:{" "}
-        <a
-          className="footer_link"
+        <A
           href="https://nbp.pl/statystyka-i-sprawozdawczosc/kursy/"
           target="_blank"
           rel="noreferrer"
@@ -19,8 +17,8 @@ const Footer = ({ result }) => (
         przeliczaniu"
         >
           nbp.pl
-        </a>
-      </p>
+        </A>
+      </StyledFooter>
     )}
   </footer>
 );
