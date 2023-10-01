@@ -11,9 +11,9 @@ function App() {
 
   const [moneyAmount, setMoneyAmount] = useState("");
 
-  const [convertFromCurrency, setConvertFromCurrency] = useState("usd");
+  const [convertFromCurrency, setConvertFromCurrency] = useState("USD");
 
-  const [convertToCurrency, setConvertToCurrency] = useState("eur");
+  const [convertToCurrency, setConvertToCurrency] = useState("EUR");
 
   const calculateResult = (
     moneyAmount,

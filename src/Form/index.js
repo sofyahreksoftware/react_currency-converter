@@ -52,8 +52,8 @@ function Form({
             onChange={(event) => setConvertFromCurrency(event.target.value)}
           >
             {currencies.map((currency) => (
-              <option key={currency.name} value={currency.value}>
-                {currency.name}
+              <option key={currency.value} value={currency.value}>
+                {currency.value}
               </option>
             ))}
           </FormField>
@@ -67,8 +67,8 @@ function Form({
             onChange={(event) => setConvertToCurrency(event.target.value)}
           >
             {currencies.map((currency) => (
-              <option key={currency.name} value={currency.value}>
-                {currency.name}
+              <option key={currency.value} value={currency.value}>
+                {currency.value}
               </option>
             ))}
           </FormField>

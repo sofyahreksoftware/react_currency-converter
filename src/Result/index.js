@@ -2,13 +2,12 @@ import { StyledResult } from "./styled";
 
 const Result = ({ result }) => (
   <StyledResult>
-    {result.targetAmount
-      ? `${+result.sourceAmount}${result.convertFromCurrency.toUpperCase()} 
-      =  ${
-        result.targetAmount ? result.targetAmount.toFixed(2) : "0"
-      }${result.convertToCurrency.toUpperCase()}
-    `
-      : ""}
+    {result.targetAmount &&
+      `${+result.sourceAmount}${result.convertFromCurrency} 
+      =  ${result.targetAmount ? result.targetAmount.toFixed(2) : "0"}${
+        result.convertToCurrency
+      }
+    `}
   </StyledResult>
 );
 
