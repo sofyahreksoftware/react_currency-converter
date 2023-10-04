@@ -20,6 +20,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Flex
 - ReactDOM
 - PostCSS
+- styled-components
 
 ## Description
 
