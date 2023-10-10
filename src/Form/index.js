@@ -34,8 +34,9 @@ function Form({
             min="1"
             name="amount"
             required
-            placeholder="0.00"
+            placeholder="0,00"
             type="number"
+            step="0.01"
             autoFocus
             value={moneyAmount}
             onChange={(event) => setMoneyAmount(event.target.value)}
