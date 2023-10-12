@@ -4,14 +4,19 @@ export const useCurrentDate = () => {
   const [date, setDate] = useState(new Date());
 
   const formatDate = (date) => {
-    return date.toLocaleDateString("pl-PL", {
+    const datePart = date.toLocaleDateString("pl-PL", {
       weekday: "long",
       day: "numeric",
       month: "long",
+    });
+
+    const timePart = date.toLocaleTimeString("pl-PL", {
       hour: "numeric",
       minute: "numeric",
       second: "numeric",
     });
+
+    return `${datePart}, ${timePart}`;
   };
 
   useEffect(() => {
