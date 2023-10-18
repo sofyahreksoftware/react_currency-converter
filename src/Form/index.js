@@ -4,8 +4,10 @@ import {
   Header,
   Fieldset,
   Label,
-  FormField,
+  LabelInput,
   Button,
+  LabelText,
+  LabelSelect
 } from "./styled";
 
 function Form({
@@ -28,8 +30,8 @@ function Form({
       <Header>Kalkulator walut</Header>
       <Fieldset>
         <Label>
-          <p>Podaj kwotę:</p>
-          <FormField
+          <LabelText as="p">Podaj&nbsp;kwotę:</LabelText>
+          <LabelInput
             as="input"
             min="1"
             name="amount"
@@ -46,8 +48,8 @@ function Form({
 
       <Fieldset>
         <Label>
-          <p>Przelicz z:</p>
-          <FormField
+          <LabelText as="p">Przelicz z:</LabelText>
+          <LabelSelect
             name="convertFrom"
             value={convertFromCurrency}
             onChange={(event) => setConvertFromCurrency(event.target.value)}
@@ -57,12 +59,12 @@ function Form({
                 {currency.value}
               </option>
             ))}
-          </FormField>
+          </LabelSelect>
         </Label>
 
         <Label>
-          <p>na:</p>
-          <FormField
+          <LabelText as="p">na:</LabelText>
+          <LabelSelect
             name="convertTo"
             value={convertToCurrency}
             onChange={(event) => setConvertToCurrency(event.target.value)}
@@ -72,7 +74,7 @@ function Form({
                 {currency.value}
               </option>
             ))}
-          </FormField>
+          </LabelSelect>
         </Label>
       </Fieldset>
       <p>

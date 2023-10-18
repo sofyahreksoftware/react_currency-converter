@@ -15,35 +15,46 @@ export const Header = styled.header`
 
 export const Fieldset = styled.fieldset`
   display: flex;
-  margin: 0 90px;
-  flex-direction: row;
-  text-align: start;
-  justify-content: center;
   border: none;
-  gap: 5px;
-  margin: auto;
+  gap: 20px;
+  margin: -15px auto;
+
+  @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+    flex-direction: column;
+  }
 `;
+
 export const Label = styled.label`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: auto;
-  gap: 15px;
+  gap: 30px;
+  margin: 0 auto;
 
-  @media (max-width: 572px) {
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
+  @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+    margin: 0;
   }
 `;
-export const FormField = styled.select`
+
+export const LabelInput = styled.select`
   border-radius: 5px;
-  border: solid hsl(0, 0%, 50%) 1px;
+  border: solid ${({ theme }) => theme.colors.gray} 1px;
   padding: 10px;
 
-  @media (max-width: 572px) {
-    max-width: 200%;
+  @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+   flex-basis: 100%;
+   flex-grow: 4;
   }
+`;
+
+export const LabelSelect = styled(LabelInput)`
+@media (max-width: ${({ theme }) => theme.media.mobile}px) {
+   flex-grow: 1;
+  }
+`;
+
+export const LabelText = styled(LabelInput)`
+  border: none;
 `;
 
 export const Button = styled.button`
@@ -51,15 +62,15 @@ export const Button = styled.button`
   margin: 0 auto;
   width: 69%;
   padding: 10px;
-  color: hsl(0, 59%, 11%);
+  color: ${({ theme }) => theme.colors.coffeeBean};
   font-size: 20px;
   border-radius: 5px;
-  border: solid hsl(0, 0%, 50%) 1px;
+  border: solid ${({ theme }) => theme.colors.coffeeBean} 1px;
   -webkit-box-shadow: inset 45px 60px 83px -53px rgba(0, 128, 128, 1);
   -moz-box-shadow: inset 45px 60px 83px -53px rgba(0, 128, 128, 1);
   box-shadow: inset 45px 60px 83px -53px rgba(0, 128, 128, 1);
-  
+
   &:active {
-    background-color: #f2d53c;
+    background-color: ${({ theme }) => theme.colors.goldenDream};
   }
 `;

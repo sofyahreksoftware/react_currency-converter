@@ -16,7 +16,7 @@ html {
     margin: 60px auto;
     font-size: 20px;
     font-family: "Roboto Slab", serif;
-    color: hsl(0, 59%, 11%);
+    color: ${({ theme }) => theme.colors.coffeeBean};
     background-image: url("${moneyBackground}");
     background-size: cover;
     background-position: center;
