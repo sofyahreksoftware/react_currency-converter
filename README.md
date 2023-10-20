@@ -21,6 +21,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - ReactDOM
 - PostCSS
 - styled-components
+- custom Hooks
+- useRef Hook
+- useState Hook
+- setInterval functions
 
 ## Description
 
