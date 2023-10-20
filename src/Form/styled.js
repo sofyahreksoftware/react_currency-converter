@@ -21,6 +21,7 @@ export const Fieldset = styled.fieldset`
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
     flex-direction: column;
+    gap: 5px;
   }
 `;
 
@@ -32,7 +33,8 @@ export const Label = styled.label`
   margin: 0 auto;
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
-    margin: 0;
+    margin: 10px;
+    flex-wrap: wrap;
   }
 `;
 
@@ -42,19 +44,22 @@ export const LabelInput = styled.select`
   padding: 10px;
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
-   flex-basis: 100%;
-   flex-grow: 4;
+    flex-basis: 100%;
+    flex-grow: 4;
   }
 `;
 
 export const LabelSelect = styled(LabelInput)`
-@media (max-width: ${({ theme }) => theme.media.mobile}px) {
-   flex-grow: 1;
+  @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+    flex-grow: 1;
   }
 `;
 
 export const LabelText = styled(LabelInput)`
   border: none;
+  @media (max-width: ${({ theme }) => theme.media.mobile}px) {
+    margin: -18px 0 ;
+  }
 `;
 
 export const Button = styled.button`
