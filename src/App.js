@@ -1,12 +1,14 @@
 import Container from "./Container";
 import Watch from "./Watch";
 import Form from "./Form";
-import { currencies } from "./currencies.js";
 import Result from "./Result";
 import Footer from "./Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useCurrenciesData } from "./useCurrenciesData.js";
 
 function App() {
+  const [currencies] = useCurrenciesData();
+
   const [result, setResult] = useState({});
 
   const [moneyAmount, setMoneyAmount] = useState("");
@@ -15,19 +17,28 @@ function App() {
 
   const [convertToCurrency, setConvertToCurrency] = useState("EUR");
 
+  useEffect(() => console.log(currencies), []);
+
   const calculateResult = (
     moneyAmount,
     convertFromCurrency,
     convertToCurrency
   ) => {
-    const exchangeCurrency = currencies.find(
-      (currency) => currency.value === convertToCurrency
-    ).rates[convertFromCurrency];
+    let sourceValue = moneyAmount;
+    if (convertFromCurrency !== "USD")
+      sourceValue =
+        currencies.find((currency) => currency.value === convertFromCurrency)
+          .rates["USD"] * moneyAmount;
+
+    let exchangeRate = 1;
+    if (convertToCurrency !== "USD")
+      exchangeRate = currencies.find((currency) => currency.value === "USD")
+        .rates[convertToCurrency];
 
     setResult({
       sourceAmount: +moneyAmount,
       convertFromCurrency,
-      targetAmount: moneyAmount * exchangeCurrency,
+      targetAmount: sourceValue * exchangeRate,
       convertToCurrency,
     });
   };
@@ -43,6 +54,7 @@ function App() {
         convertToCurrency={convertToCurrency}
         setConvertToCurrency={setConvertToCurrency}
         calculateResult={calculateResult}
+        currencies={currencies}
       />
       <Result result={result} />
       <Footer result={result} />

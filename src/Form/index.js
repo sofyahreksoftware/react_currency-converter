@@ -1,4 +1,4 @@
-import { currencies } from "../currencies.js";
+// import { currencies } from "../currencies.js";
 import {
   StyledForm,
   Header,
@@ -7,7 +7,7 @@ import {
   LabelInput,
   Button,
   LabelText,
-  LabelSelect
+  LabelSelect,
 } from "./styled";
 
 function Form({
@@ -18,6 +18,7 @@ function Form({
   convertToCurrency,
   setConvertToCurrency,
   calculateResult,
+  currencies,
 }) {
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -54,11 +55,21 @@ function Form({
             value={convertFromCurrency}
             onChange={(event) => setConvertFromCurrency(event.target.value)}
           >
-            {currencies.map((currency) => (
+            {currencies.data &&
+              Object.keys(currencies.data).map((currencyKey) => (
+                <option
+                  key={currencyKey}
+                  value={currencies.data[currencyKey].code}
+                >
+                  {" "}
+                  {currencies.data[currencyKey].code}
+                </option>
+              ))}
+            {/* {currencies.map((currency) => (
               <option key={currency.value} value={currency.value}>
                 {currency.value}
               </option>
-            ))}
+            ))} */}
           </LabelSelect>
         </Label>
 
@@ -69,11 +80,20 @@ function Form({
             value={convertToCurrency}
             onChange={(event) => setConvertToCurrency(event.target.value)}
           >
-            {currencies.map((currency) => (
-              <option key={currency.value} value={currency.value}>
+            {currencies.data &&
+              Object.keys(currencies.data).map((currencyKey) => (
+                <option
+                  key={currencyKey}
+                  value={currencies.data[currencyKey].code}
+                >
+                  {currencies.data[currencyKey].code}
+                </option>
+              ))}
+            {/* {ratesData.map(({ data }) => (
+              <option key={data.data.value} value={currency.value}>
                 {currency.value}
               </option>
-            ))}
+            ))} */}
           </LabelSelect>
         </Label>
       </Fieldset>
