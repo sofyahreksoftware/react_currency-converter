@@ -1,4 +1,3 @@
-// import { currencies } from "../currencies.js";
 import {
   StyledForm,
   Header,
@@ -9,7 +8,7 @@ import {
   LabelText,
   LabelSelect,
 } from "./styled";
-
+import { useEffect } from "react";
 function Form({
   moneyAmount,
   setMoneyAmount,
@@ -20,6 +19,11 @@ function Form({
   calculateResult,
   currencies,
 }) {
+  useEffect(() => {
+    console.log(Object.keys(currencies.data));
+  });
+  // // console.log(currencies.data);
+
   const onFormSubmit = (event) => {
     event.preventDefault();
     calculateResult(moneyAmount, convertFromCurrency, convertToCurrency);
@@ -56,20 +60,14 @@ function Form({
             onChange={(event) => setConvertFromCurrency(event.target.value)}
           >
             {currencies.data &&
-              Object.keys(currencies.data).map((currencyKey) => (
+              Object.keys(currencies.data.data).map((currencyKey) => (
                 <option
                   key={currencyKey}
-                  value={currencies.data[currencyKey].code}
+                  value={currencies.data.data[currencyKey].code}
                 >
-                  {" "}
-                  {currencies.data[currencyKey].code}
+                  {currencies.data.data[currencyKey].code}
                 </option>
               ))}
-            {/* {currencies.map((currency) => (
-              <option key={currency.value} value={currency.value}>
-                {currency.value}
-              </option>
-            ))} */}
           </LabelSelect>
         </Label>
 
@@ -81,19 +79,14 @@ function Form({
             onChange={(event) => setConvertToCurrency(event.target.value)}
           >
             {currencies.data &&
-              Object.keys(currencies.data).map((currencyKey) => (
+              Object.keys(currencies.data.data).map((currencyKey) => (
                 <option
                   key={currencyKey}
-                  value={currencies.data[currencyKey].code}
+                  value={currencies.data.data[currencyKey].code}
                 >
-                  {currencies.data[currencyKey].code}
+                  {currencies.data.data[currencyKey].code}
                 </option>
               ))}
-            {/* {ratesData.map(({ data }) => (
-              <option key={data.data.value} value={currency.value}>
-                {currency.value}
-              </option>
-            ))} */}
           </LabelSelect>
         </Label>
       </Fieldset>

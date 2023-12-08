@@ -8,8 +8,9 @@ export const useCurrenciesData = () => {
 
   useEffect(() => {
     const getApi = () => {
-      console.log(process.env.REACT_APP_API_URL);
-      fetch(`${process.env.REACT_APP_API_URL}`)
+      // console.log(process.env.REACT_APP_API_URL);
+      // fetch(`${process.env.REACT_APP_API_URL}`)
+      fetch("/currencyApi.json")
         .then((response) => {
           if (!response.ok) {
             throw new Error(response.statusText);
@@ -23,7 +24,7 @@ export const useCurrenciesData = () => {
           localStorage.setItem("myData", JSON.stringify(data));
         })
         .catch((error) => {
-          console.error(error);
+          console.log(error);
           setCurrencies({ data: null, status: "error" });
         });
     };

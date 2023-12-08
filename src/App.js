@@ -17,7 +17,7 @@ function App() {
 
   const [convertToCurrency, setConvertToCurrency] = useState("EUR");
 
-  useEffect(() => console.log(currencies), []);
+useEffect(() => console.log(currencies.data), []);
 
   const calculateResult = (
     moneyAmount,
