@@ -24,14 +24,11 @@ function App() {
   ) => {
     let sourceValue = moneyAmount;
     if (convertFromCurrency !== "USD")
-      sourceValue =
-        currencies.find((currency) => currency.value === convertFromCurrency)
-          .rates["USD"] * moneyAmount;
+      sourceValue = moneyAmount / currencies[convertFromCurrency].value;
 
     let exchangeRate = 1;
     if (convertToCurrency !== "USD")
-      exchangeRate = currencies.find((currency) => currency.value === "USD")
-        .rates[convertToCurrency];
+      exchangeRate = currencies[convertToCurrency].value;
 
     setResult({
       sourceAmount: +moneyAmount,
