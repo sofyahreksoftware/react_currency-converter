@@ -10,7 +10,7 @@ export const useCurrenciesData = () => {
     const getApi = () => {
       // console.log(process.env.REACT_APP_API_URL);
       // fetch(`${process.env.REACT_APP_API_URL}`)
-      fetch("/currencyApi.json")
+      fetch("http://localhost:3000/react_currency-converter/currencyApi.json")
         .then((response) => {
           if (!response.ok) {
             throw new Error(response.statusText);

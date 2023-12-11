@@ -3,7 +3,7 @@ import Watch from "./Watch";
 import Form from "./Form";
 import Result from "./Result";
 import Footer from "./Footer";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useCurrenciesData } from "./useCurrenciesData.js";
 
 function App() {
@@ -16,8 +16,6 @@ function App() {
   const [convertFromCurrency, setConvertFromCurrency] = useState("USD");
 
   const [convertToCurrency, setConvertToCurrency] = useState("EUR");
-
-useEffect(() => console.log(currencies.data), []);
 
   const calculateResult = (
     moneyAmount,

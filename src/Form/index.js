@@ -8,7 +8,7 @@ import {
   LabelText,
   LabelSelect,
 } from "./styled";
-import { useEffect } from "react";
+
 function Form({
   moneyAmount,
   setMoneyAmount,
@@ -19,10 +19,9 @@ function Form({
   calculateResult,
   currencies,
 }) {
-  useEffect(() => {
-    console.log(Object.keys(currencies.data));
-  });
-  // // console.log(currencies.data);
+
+  // console.log(Object.keys(currencies.data.data));
+
 
   const onFormSubmit = (event) => {
     event.preventDefault();
