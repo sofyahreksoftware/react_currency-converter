@@ -22,13 +22,11 @@ function App() {
     convertFromCurrency,
     convertToCurrency
   ) => {
-    let sourceValue = moneyAmount;
-    if (convertFromCurrency !== "USD")
-      sourceValue = moneyAmount / currencies[convertFromCurrency].value;
+    let sourceValue;
+    sourceValue = moneyAmount / currencies.data.data[convertFromCurrency].value;
 
-    let exchangeRate = 1;
-    if (convertToCurrency !== "USD")
-      exchangeRate = currencies[convertToCurrency].value;
+    let exchangeRate;
+    exchangeRate = currencies.data.data[convertToCurrency].value;
 
     setResult({
       sourceAmount: +moneyAmount,
