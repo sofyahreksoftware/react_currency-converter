@@ -3,20 +3,14 @@ const Footer = ({ result }) => (
   <footer>
     {result.targetAmount && (
       <StyledFooter>
-        Kursy walut pochodzą ze strony:{" "}
+        Kursy walut są pobierane z Europejskiego Banku Centralnego przy użyciu{" "}
         <A
-          href="https://nbp.pl/statystyka-i-sprawozdawczosc/kursy/"
+          href="https://currencyapi.com/"
           target="_blank"
           rel="noreferrer"
-          title="więcej
-        o
-        kursach
-        walut
-        i
-        ich
-        przeliczaniu"
+          title="API wykorzystywane do przelicznia"
         >
-          nbp.pl
+          Currency&nbsp;Conversion&nbsp;Api
         </A>
       </StyledFooter>
     )}
