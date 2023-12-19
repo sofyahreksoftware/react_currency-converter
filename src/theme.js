@@ -6,8 +6,7 @@ export const theme = {
     gray: "#808080",
     coffeeBean: "#2d0c0c",
     goldenDream: "#f2d53c",
+    crimson: "#dc143c",
+    teal: "#008080",
   },
 };
-
-
-

@@ -3,6 +3,7 @@ import Watch from "./Watch";
 import Form from "./Form";
 import Result from "./Result";
 import Footer from "./Footer";
+import Article from "./Article";
 import { useState } from "react";
 import { useCurrenciesData } from "./useCurrenciesData.js";
 
@@ -17,6 +18,7 @@ function App() {
 
   const [convertToCurrency, setConvertToCurrency] = useState("EUR");
 
+  
   const calculateResult = (
     moneyAmount,
     convertFromCurrency,
@@ -39,18 +41,21 @@ function App() {
   return (
     <Container>
       <Watch />
-      <Form
-        moneyAmount={moneyAmount}
-        setMoneyAmount={setMoneyAmount}
-        convertFromCurrency={convertFromCurrency}
-        setConvertFromCurrency={setConvertFromCurrency}
-        convertToCurrency={convertToCurrency}
-        setConvertToCurrency={setConvertToCurrency}
-        calculateResult={calculateResult}
-        currencies={currencies}
-      />
-      <Result result={result} />
-      <Footer result={result} />
+      <Article currencies={currencies}>
+        {" "}
+        <Form
+          moneyAmount={moneyAmount}
+          setMoneyAmount={setMoneyAmount}
+          convertFromCurrency={convertFromCurrency}
+          setConvertFromCurrency={setConvertFromCurrency}
+          convertToCurrency={convertToCurrency}
+          setConvertToCurrency={setConvertToCurrency}
+          calculateResult={calculateResult}
+          currencies={currencies}
+        />
+        <Result result={result} />
+        <Footer result={result} />
+      </Article>
     </Container>
   );
 }
