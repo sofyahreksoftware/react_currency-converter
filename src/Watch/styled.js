@@ -5,4 +5,5 @@ export const StyledWatch = styled.p`
   font-size: 19px;
   color: ${({ theme }) => theme.colors.grey};
   text-align: right;
+  margin-right: 5%;
 `;
