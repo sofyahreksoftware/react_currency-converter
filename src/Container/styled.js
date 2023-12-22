@@ -5,7 +5,6 @@ export const StyledContainer = styled.main`
   border-radius: 15px;
   padding: 20px;
   margin: 0 auto;
-  /* flex-direction: column; */
 
   @media (max-width: ${({ theme }) => theme.media.mobile}px) {
     width: 100%;

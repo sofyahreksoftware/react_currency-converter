@@ -11,7 +11,7 @@ export const useCurrenciesData = () => {
       // fetch(`${process.env.REACT_APP_API_URL}`)
       setTimeout(() => {
         fetch(
-          "https://sofyahreksoftware.github.io/react_currency-converter/currencyApi.jso"
+          "https://sofyahreksoftware.github.io/react_currency-converter/currencyApi.json"
         )
           .then((response) => {
             if (!response.ok) {
