@@ -8,11 +8,8 @@ export const useCurrenciesData = () => {
 
   useEffect(() => {
     const getApi = () => {
-      // fetch(`${process.env.REACT_APP_API_URL}`)
       setTimeout(() => {
-        fetch(
-          "https://sofyahreksoftware.github.io/react_currency-converter/currencyApi.json"
-        )
+        fetch(`${process.env.REACT_APP_API_URL}`)
           .then((response) => {
             if (!response.ok) {
               throw new Error(response.statusText);
