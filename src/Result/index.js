@@ -7,17 +7,17 @@ function Result({ result }) {
       maximumFractionDigits: 2,
     });
   };
-  
+
   return (
     <StyledResult>
       {result.targetAmount && (
-        <div>
+        <p>
           {formatAmount(+result.sourceAmount)} {result.convertFromCurrency} ={" "}
           <ResultValue>
             {result.targetAmount && formatAmount(result.targetAmount)}
             {result.convertToCurrency}
           </ResultValue>
-        </div>
+        </p>
       )}
     </StyledResult>
   );

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledFooter = styled.p`
+export const StyledFooter = styled.footer`
   color: ${({ theme }) => theme.colors.gray};
   font-weight: 600;
   text-align: center;
