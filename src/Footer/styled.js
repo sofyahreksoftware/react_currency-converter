@@ -6,6 +6,6 @@ export const StyledFooter = styled.footer`
   text-align: center;
   font-family: "Prompt", sans-serif;
 `;
-export const A = styled.a`
+export const CurrencyApiAnchor = styled.a`
   color: ${({ theme }) => theme.colors.doveGrey};
 `;

@@ -1,22 +1,23 @@
-import { ArticleText } from "./styled";
+import { AppStateBannerText } from "./styled";
 
-const Article = ({ children, currencies }) => (
+const AppStateBanner = ({ children, currencies }) => (
   <article>
     {currencies.status === "success" && children}
 
     {currencies.status === "loading" && (
-      <ArticleText $loading>
+      <AppStateBannerText $loading>
         Sekundka... Ładuję kursy z Europejskiego Banku Centralnego!🤪😎
-      </ArticleText>
+      </AppStateBannerText>
     )}
 
     {currencies.status === "error" && (
-      <ArticleText $error>
+      <AppStateBannerText $error>
         "Coś poszło nie tak 😱😭 Sprawdź, czy masz połączenie z internetem!
         Jeśli masz... to prawdopodobnie to nasza wina. Może warto spróbować
         później! 😉
-      </ArticleText>
+      </AppStateBannerText>
     )}
   </article>
 );
-export default Article;
+
+export default AppStateBanner;

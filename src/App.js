@@ -3,13 +3,13 @@ import Watch from "./Watch";
 import Form from "./Form";
 import Result from "./Result";
 import Footer from "./Footer";
-import Article from "./Article";
+import AppStateBanner from "./AppStateBanner";
 import { useState } from "react";
 import { useCurrenciesData } from "./useCurrenciesData.js";
 
 function App() {
   const [currencies] = useCurrenciesData();
-
+ 
   const [result, setResult] = useState({});
 
   const [moneyAmount, setMoneyAmount] = useState("");
@@ -41,8 +41,7 @@ function App() {
   return (
     <Container>
       <Watch />
-      <Article currencies={currencies}>
-        {" "}
+      <AppStateBanner currencies={currencies}>
         <Form
           moneyAmount={moneyAmount}
           setMoneyAmount={setMoneyAmount}
@@ -55,7 +54,7 @@ function App() {
         />
         <Result result={result} />
         <Footer result={result} />
-      </Article>
+      </AppStateBanner>
     </Container>
   );
 }
