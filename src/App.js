@@ -18,26 +18,6 @@ function App() {
 
   const [convertToCurrency, setConvertToCurrency] = useState("EUR");
 
-  
-  const calculateResult = (
-    moneyAmount,
-    convertFromCurrency,
-    convertToCurrency
-  ) => {
-    let sourceValue;
-    sourceValue = moneyAmount / currencies.data.data[convertFromCurrency].value;
-
-    let exchangeRate;
-    exchangeRate = currencies.data.data[convertToCurrency].value;
-
-    setResult({
-      sourceAmount: +moneyAmount,
-      convertFromCurrency,
-      targetAmount: sourceValue * exchangeRate,
-      convertToCurrency,
-    });
-  };
-
   return (
     <Container>
       <Watch />
@@ -49,8 +29,8 @@ function App() {
           setConvertFromCurrency={setConvertFromCurrency}
           convertToCurrency={convertToCurrency}
           setConvertToCurrency={setConvertToCurrency}
-          calculateResult={calculateResult}
           currencies={currencies}
+          setResult={setResult}
         />
         <Result result={result} />
         <Footer result={result} />

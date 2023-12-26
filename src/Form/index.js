@@ -16,12 +16,28 @@ function Form({
   setConvertFromCurrency,
   convertToCurrency,
   setConvertToCurrency,
-  calculateResult,
   currencies,
+  setResult
 }) {
 
-  // console.log(Object.keys(currencies.data.data));
+  const calculateResult = (
+    moneyAmount,
+    convertFromCurrency,
+    convertToCurrency
+  ) => {
+    let sourceValue;
+    sourceValue = moneyAmount / currencies.data.data[convertFromCurrency].value;
 
+    let exchangeRate;
+    exchangeRate = currencies.data.data[convertToCurrency].value;
+
+    setResult({
+      sourceAmount: +moneyAmount,
+      convertFromCurrency,
+      targetAmount: sourceValue * exchangeRate,
+      convertToCurrency,
+    });
+  };
 
   const onFormSubmit = (event) => {
     event.preventDefault();
