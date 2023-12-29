@@ -8,23 +8,34 @@ export const useCurrenciesData = () => {
 
   useEffect(() => {
     const getApi = () => {
+      const request = new XMLHttpRequest();
+
+      const URL=`${process.env.REACT_APP_API_URL}`
+      
+      request.open("GET", URL );
+
+      request.responseType = "json";
+
+      request.onload = () => {
+        if (request.status >= 200 && request.status < 300) {
+          try {
+            setCurrencies({ data: request.response, status: "success" });
+          } catch (error) {
+            console.error("There was an error", error);
+          }
+        } else {
+          console.error("Requst failed with status", request.status);
+          setCurrencies({ data: null, status: "error" });
+        }
+      };
+
+      request.onerror = () => {
+        setCurrencies({ data: null, status: "error" });
+        console.error("Network error occured");
+      };
+
       setTimeout(() => {
-        fetch(`${process.env.REACT_APP_API_URL}`)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(response.statusText);
-            }
-            return response;
-          })
-          .then((response) => response.json())
-          .then((data) => {
-            setCurrencies({ data: data, status: "success" });
-            localStorage.setItem("myData", JSON.stringify(data));
-          })
-          .catch((error) => {
-            console.error("Error", error);
-            setCurrencies({ data: null, status: "error" });
-          });
+        request.send();
       }, 3000);
     };
     getApi();
