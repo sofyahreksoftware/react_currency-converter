@@ -7,38 +7,42 @@ export const useCurrenciesData = () => {
   });
 
   useEffect(() => {
-    const getApi = () => {
-      const request = new XMLHttpRequest();
+    const makeRequest = (URL) => {
+      return new Promise((resolve, reject) => {
+        const request = new XMLHttpRequest();
 
-      const URL=`${process.env.REACT_APP_API_URL}`
-      
-      request.open("GET", URL );
+        request.open("GET", URL);
+        request.responseType = "json";
 
-      request.responseType = "json";
-
-      request.onload = () => {
-        if (request.status >= 200 && request.status < 300) {
-          try {
-            setCurrencies({ data: request.response, status: "success" });
-          } catch (error) {
-            console.error("There was an error", error);
+        request.onload = () => {
+          if (request.status >= 200 && request.status < 300) {
+            setTimeout(() => {
+              resolve(request.response);
+            }, 3000);
+          } else {
+            reject(new Error("Request failed with status: " + request.status));
           }
-        } else {
-          console.error("Requst failed with status", request.status);
-          setCurrencies({ data: null, status: "error" });
-        }
-      };
+        };
 
-      request.onerror = () => {
-        setCurrencies({ data: null, status: "error" });
-        console.error("Network error occured");
-      };
+        request.onerror = () => {
+          reject(new Error("Network error occurred"));
+        };
 
-      setTimeout(() => {
         request.send();
-      }, 3000);
+      });
     };
-    getApi();
+
+    const fetchData = async () => {
+      try {
+        let data = await makeRequest(process.env.REACT_APP_API_URL);
+        setCurrencies({ data: data, status: "success" });
+      } catch (error) {
+        console.error(error);
+        setCurrencies({ data: null, status: "error" });
+      }
+    };
+
+    fetchData();
   }, []);
 
   return [currencies];
