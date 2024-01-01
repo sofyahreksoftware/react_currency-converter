@@ -9,23 +9,19 @@ export const useCurrenciesData = () => {
   });
 
   useEffect(() => {
-    const getApi = (url) => {
-      axios
-        .get(url)
-        .then((response) => {
-          setCurrencies({ data: response.data, status: "success" });
-        })
-        .catch((error) => {
-          console.error(error);
-          setCurrencies({ data: null, status: "error" });
-        });
+    const getApi = async (url) => {
+      try {
+        const response = await axios.get(url);
+        setCurrencies({ data: response.data, status: "success" });
+      } catch (error) {
+        console.error(error);
+        setCurrencies({ data: null, status: "error" });
+      }
     };
 
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       getApi(`${process.env.REACT_APP_API_URL}`);
     }, 3000);
-
-    clearTimeout(timer);
   }, []);
 
   return [currencies];
