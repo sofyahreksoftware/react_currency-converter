@@ -9,6 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 [Link to the main page of Currency Converter](https://sofyahreksoftware.github.io/react_currency-converter/)
 
 ## Technologies
+
 - HTML
 - Google Fonts
 - CSS
@@ -26,16 +27,28 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - useState Hook
 - setInterval functions
 
+## API Integration
+
+This project integrates with an external API to perform currency conversion. Various methods were explored and implemented for API integration, including:
+
+- `fetch`: Used fetch for API calls.
+- `fetch` with `async/await`: Employed async/await with fetch for asynchronous API requests.
+- `XMLHttpRequest`: Utilized XMLHttpRequest for making API requests.
+- `XMLHttpRequest` with `Promises`: Used Promises with XMLHttpRequest for asynchronous API calls.
+- `axios`: Integrated the axios library for handling API requests.
+- `axios` with `async/await`: Implemented async/await with axios for handling asynchronous API calls.
+
 ## Description
 
 ### How should the application look?
 
 - before result calculation
-![The correct look of application before result calculation](ssBeforeCalculation.png)
+  ![The correct look of application before result calculation](ssBeforeCalculation.png)
 - after result calculation
-![The correct look of application after result calculation](ssAfterCalculation.png)
+  ![The correct look of application after result calculation](ssAfterCalculation.png)
 
 ### Available currencies
+
 This application offers currency conversion for a selection of 5 different currencies:
 
 - USD
@@ -45,6 +58,7 @@ This application offers currency conversion for a selection of 5 different curre
 - CHF
 
 ## Instruction. How to use an application?
+
 1. Enter the amount of money tou want to convert to the first field.
 2. Select currency you are converting from.
 3. Select currency you are converting to.
