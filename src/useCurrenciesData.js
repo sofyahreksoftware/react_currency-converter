@@ -6,43 +6,28 @@ export const useCurrenciesData = () => {
     status: "loading",
   });
 
+  const fetchData = async (url) => {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    return await response.json();
+  };
+
   useEffect(() => {
-    const makeRequest = (URL) => {
-      return new Promise((resolve, reject) => {
-        const request = new XMLHttpRequest();
-
-        request.open("GET", URL);
-        request.responseType = "json";
-
-        request.onload = () => {
-          if (request.status >= 200 && request.status < 300) {
-            setTimeout(() => {
-              resolve(request.response);
-            }, 3000);
-          } else {
-            reject(new Error("Request failed with status: " + request.status));
-          }
-        };
-
-        request.onerror = () => {
-          reject(new Error("Network error occurred"));
-        };
-
-        request.send();
-      });
-    };
-
-    const fetchData = async () => {
+    const getApi = async () => {
       try {
-        let data = await makeRequest(process.env.REACT_APP_API_URL);
-        setCurrencies({ data: data, status: "success" });
+        const ratesData = await fetchData(`${process.env.REACT_APP_API_URL}`);
+        setCurrencies({ data: ratesData, status: "success" });
       } catch (error) {
-        console.error(error);
         setCurrencies({ data: null, status: "error" });
       }
     };
 
-    fetchData();
+    setTimeout(() => {
+      getApi();
+    }, 3000);
   }, []);
 
   return [currencies];
