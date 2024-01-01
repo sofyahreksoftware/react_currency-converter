@@ -25,9 +25,11 @@ export const useCurrenciesData = () => {
       }
     };
 
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       getApi();
     }, 3000);
+
+    clearTimeout(timer);
   }, []);
 
   return [currencies];
