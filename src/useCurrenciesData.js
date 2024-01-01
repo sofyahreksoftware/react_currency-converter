@@ -21,9 +21,11 @@ export const useCurrenciesData = () => {
         });
     };
 
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       getApi(`${process.env.REACT_APP_API_URL}`);
     }, 3000);
+
+    clearTimeout(timer);
   }, []);
 
   return [currencies];
