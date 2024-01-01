@@ -1,3 +1,5 @@
+import axios from "axios";
+
 import { useState, useEffect } from "react";
 
 export const useCurrenciesData = () => {
@@ -6,30 +8,22 @@ export const useCurrenciesData = () => {
     status: "loading",
   });
 
-  const fetchData = async (url) => {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-
-    return await response.json();
-  };
-
   useEffect(() => {
-    const getApi = async () => {
-      try {
-        const ratesData = await fetchData(`${process.env.REACT_APP_API_URL}`);
-        setCurrencies({ data: ratesData, status: "success" });
-      } catch (error) {
-        setCurrencies({ data: null, status: "error" });
-      }
+    const getApi = (url) => {
+      axios
+        .get(url)
+        .then((response) => {
+          setCurrencies({ data: response.data, status: "success" });
+        })
+        .catch((error) => {
+          console.error(error);
+          setCurrencies({ data: null, status: "error" });
+        });
     };
 
-    const timer = setTimeout(() => {
-      getApi();
+    setTimeout(() => {
+      getApi(`${process.env.REACT_APP_API_URL}`);
     }, 3000);
-
-    clearTimeout(timer);
   }, []);
 
   return [currencies];
