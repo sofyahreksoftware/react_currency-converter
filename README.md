@@ -19,6 +19,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - CSS Box Model
 - BEM convention
 - Flexbox
+- Media Queries
+- pseudo-classes
 
 - **Webpack**
 - **Babel**
@@ -32,6 +34,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - useState Hook
 - useEffect Hook
 - setInterval functions
+
 
 ## API Integration
 

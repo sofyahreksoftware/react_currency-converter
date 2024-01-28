@@ -53,7 +53,7 @@ function Form({
           <LabelText as="p">Podaj&nbsp;kwotę:</LabelText>
           <LabelInput
             as="input"
-            min="1"
+            min="0.01"
             name="amount"
             required
             placeholder="0,00"
