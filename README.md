@@ -10,21 +10,27 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Technologies
 
-- HTML
+- **HTML**
+- Open Graph Protocol
 - Google Fonts
-- CSS
+
+- **CSS**
 - Normalize CSS
+- CSS Box Model
 - BEM convention
-- Webpack
-- Babel
-- React
-- Flex
-- ReactDOM
-- PostCSS
+- Flexbox
+
+- **Webpack**
+- **Babel**
+- **PostCSS**
+- **React**
+- **ReactDOM**
+
 - styled-components
 - custom Hooks
 - useRef Hook
 - useState Hook
+- useEffect Hook
 - setInterval functions
 
 ## API Integration
