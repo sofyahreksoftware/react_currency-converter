@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { useState, useEffect } from "react";
 
-export const useCurrenciesData = () => {
+export const useGetCurrenciesData = () => {
   const [currencies, setCurrencies] = useState({
     data: null,
     status: "loading",

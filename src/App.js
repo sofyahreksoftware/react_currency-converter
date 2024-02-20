@@ -5,10 +5,10 @@ import Result from "./Result";
 import Footer from "./Footer";
 import AppStateBanner from "./AppStateBanner";
 import { useState } from "react";
-import { useCurrenciesData } from "./useCurrenciesData.js";
+import { useGetCurrenciesData } from "./useGetCurrenciesData.js";
 
 function App() {
-  const [currencies] = useCurrenciesData();
+  const [currencies] = useGetCurrenciesData();
  
   const [result, setResult] = useState({});
 
